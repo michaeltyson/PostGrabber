@@ -1566,6 +1566,35 @@
 									<int key="NSvFlags">256</int>
 									<object class="NSMutableArray" key="NSSubviews">
 										<bool key="EncodedWithXMLCoder">YES</bool>
+										<object class="NSButton" id="851400624">
+											<reference key="NSNextResponder" ref="984818074"/>
+											<int key="NSvFlags">265</int>
+											<string key="NSFrame">{{366, 113}, {123, 18}}</string>
+											<reference key="NSSuperview" ref="984818074"/>
+											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView" ref="46228083"/>
+											<bool key="NSEnabled">YES</bool>
+											<object class="NSButtonCell" key="NSCell" id="710840897">
+												<int key="NSCellFlags">-2080244224</int>
+												<int key="NSCellFlags2">0</int>
+												<string key="NSContents">Include Referrer</string>
+												<reference key="NSSupport" ref="1031879423"/>
+												<reference key="NSControlView" ref="851400624"/>
+												<int key="NSButtonFlags">1211912703</int>
+												<int key="NSButtonFlags2">2</int>
+												<object class="NSCustomResource" key="NSNormalImage" id="442120067">
+													<string key="NSClassName">NSImage</string>
+													<string key="NSResourceName">NSSwitch</string>
+												</object>
+												<object class="NSButtonImageSource" key="NSAlternateImage" id="930220342">
+													<string key="NSImageName">NSSwitch</string>
+												</object>
+												<string key="NSAlternateContents"/>
+												<string key="NSKeyEquivalent"/>
+												<int key="NSPeriodicDelay">200</int>
+												<int key="NSPeriodicInterval">25</int>
+											</object>
+										</object>
 										<object class="NSButton" id="46228083">
 											<reference key="NSNextResponder" ref="984818074"/>
 											<int key="NSvFlags">289</int>
@@ -1594,7 +1623,7 @@
 											<string key="NSFrame">{{366, 139}, {114, 18}}</string>
 											<reference key="NSSuperview" ref="984818074"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="46228083"/>
+											<reference key="NSNextKeyView" ref="851400624"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="514339446">
 												<int key="NSCellFlags">-2080244224</int>
@@ -1604,13 +1633,8 @@
 												<reference key="NSControlView" ref="727650311"/>
 												<int key="NSButtonFlags">1211912703</int>
 												<int key="NSButtonFlags2">2</int>
-												<object class="NSCustomResource" key="NSNormalImage" id="839605596">
-													<string key="NSClassName">NSImage</string>
-													<string key="NSResourceName">NSSwitch</string>
-												</object>
-												<object class="NSButtonImageSource" key="NSAlternateImage" id="930220342">
-													<string key="NSImageName">NSSwitch</string>
-												</object>
+												<reference key="NSNormalImage" ref="442120067"/>
+												<reference key="NSAlternateImage" ref="930220342"/>
 												<string key="NSAlternateContents"/>
 												<string key="NSKeyEquivalent"/>
 												<int key="NSPeriodicDelay">200</int>
@@ -1633,7 +1657,7 @@
 												<reference key="NSControlView" ref="195122309"/>
 												<int key="NSButtonFlags">1211912703</int>
 												<int key="NSButtonFlags2">2</int>
-												<reference key="NSNormalImage" ref="839605596"/>
+												<reference key="NSNormalImage" ref="442120067"/>
 												<reference key="NSAlternateImage" ref="930220342"/>
 												<string key="NSAlternateContents"/>
 												<string key="NSKeyEquivalent"/>
@@ -1834,6 +1858,7 @@
 					<string>script</string>
 					<string>includeCookies</string>
 					<string>useCookieJar</string>
+					<string>includeReferrer</string>
 				</object>
 				<string key="NSObjectClassName">PGMainWindowController</string>
 				<bool key="NSEditable">YES</bool>
@@ -2548,14 +2573,6 @@
 					<int key="connectionID">554</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">takeStringURLFrom:</string>
-						<reference key="source" ref="812827681"/>
-						<reference key="destination" ref="415342355"/>
-					</object>
-					<int key="connectionID">555</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: selection.mainFrameURL</string>
 						<reference key="source" ref="415342355"/>
@@ -2783,6 +2800,30 @@
 						<reference key="destination" ref="46228083"/>
 					</object>
 					<int key="connectionID">594</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: selection.includeReferrer</string>
+						<reference key="source" ref="851400624"/>
+						<reference key="destination" ref="542036266"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="851400624"/>
+							<reference key="NSDestination" ref="542036266"/>
+							<string key="NSLabel">value: selection.includeReferrer</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">selection.includeReferrer</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">598</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openURL:</string>
+						<reference key="source" ref="455833135"/>
+						<reference key="destination" ref="415342355"/>
+					</object>
+					<int key="connectionID">599</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3876,6 +3917,7 @@
 							<reference ref="195122309"/>
 							<reference ref="727650311"/>
 							<reference ref="46228083"/>
+							<reference ref="851400624"/>
 						</object>
 						<reference key="parent" ref="684011261"/>
 					</object>
@@ -4024,6 +4066,20 @@
 						<int key="objectID">592</int>
 						<reference key="object" ref="470348039"/>
 						<reference key="parent" ref="1015861805"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">595</int>
+						<reference key="object" ref="851400624"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="710840897"/>
+						</object>
+						<reference key="parent" ref="984818074"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">596</int>
+						<reference key="object" ref="710840897"/>
+						<reference key="parent" ref="851400624"/>
 					</object>
 				</object>
 			</object>
@@ -4285,6 +4341,8 @@
 					<string>58.IBPluginDependency</string>
 					<string>58.ImportedFromIB2</string>
 					<string>592.IBPluginDependency</string>
+					<string>595.IBPluginDependency</string>
+					<string>596.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
 					<string>72.ImportedFromIB2</string>
 					<string>73.IBPluginDependency</string>
@@ -4569,6 +4627,8 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -4608,7 +4668,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">594</int>
+			<int key="maxID">599</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4688,10 +4748,12 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>copyScript:</string>
+							<string>openURL:</string>
 							<string>stopOrReload:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -4701,12 +4763,17 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>copyScript:</string>
+							<string>openURL:</string>
 							<string>stopOrReload:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">copyScript:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">openURL:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

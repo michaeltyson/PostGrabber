@@ -21,11 +21,11 @@
 @synthesize webView;
 @synthesize urlField;
 @dynamic script;
-@synthesize includeCookies, useCookieJar;
+@synthesize includeCookies, useCookieJar, includeReferrer;
 
 +(NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
     if ( [key isEqualToString:@"script"] ) {
-        return [[super keyPathsForValuesAffectingValueForKey:key] setByAddingObjectsFromArray:[NSArray arrayWithObjects:@"includeCookies", @"useCookieJar", nil]];
+        return [[super keyPathsForValuesAffectingValueForKey:key] setByAddingObjectsFromArray:[NSArray arrayWithObjects:@"includeCookies", @"useCookieJar", @"includeReferrer", nil]];
     }
     return [super keyPathsForValuesAffectingValueForKey:key];
 }
@@ -42,7 +42,7 @@
 }
 
 -(void)awakeFromNib {
-    [urlField becomeFirstResponder];
+    [urlField.window makeFirstResponder:urlField];
 }
 
 - (void)dealloc {
@@ -65,6 +65,14 @@
     [pasteBoard setString:self.script forType:NSStringPboardType];
 }
 
+- (IBAction)openURL:(NSTextField*)sender {
+    if ( ![[sender stringValue] hasPrefix:@"http"] ) {
+        [sender setStringValue:[@"http://" stringByAppendingString:[sender stringValue]]];
+    }
+    [webView takeStringURLFrom:sender];
+    [[webView window] makeFirstResponder:webView];
+}
+
 - (NSString*)script {
     NSMutableString *string = [NSMutableString string];
     for ( NSURLRequest *request in requests ) {
@@ -80,6 +88,10 @@
             if ( !includeCookies || ![[request allHTTPHeaderFields] objectForKey:@"Cookie"] ) {
                 [string appendString:@" -b /tmp/cookies.txt"];
             }
+        }
+        
+        if ( includeReferrer && [[request allHTTPHeaderFields] objectForKey:@"Referer"] ) {
+            [string appendFormat:@" -e %@", [[request allHTTPHeaderFields] objectForKey:@"Referer"]];
         }
         
         NSMutableDictionary *formFields = nil;

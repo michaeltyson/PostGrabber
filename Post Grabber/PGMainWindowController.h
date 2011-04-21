@@ -12,6 +12,7 @@
 @interface PGMainWindowController : NSObject {
     BOOL includeCookies;
     BOOL useCookieJar;
+    BOOL includeReferrer;
     WebView *webView;
     NSTextField *urlField;
     
@@ -20,10 +21,13 @@
 }
 - (IBAction)stopOrReload:(id)sender;
 - (IBAction)copyScript:(id)sender;
+- (IBAction)openURL:(id)sender;
 
 @property (nonatomic, readonly) NSString *script;
 @property (nonatomic, assign) BOOL includeCookies;
 @property (nonatomic, assign) BOOL useCookieJar;
+@property (nonatomic, assign) BOOL includeReferrer;
+
 @property (assign) IBOutlet WebView *webView;
 @property (assign) IBOutlet NSTextField *urlField;
 @end
