@@ -10,9 +10,10 @@
 		274CEDAA136008B50036F493 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274CEDA9136008B50036F493 /* Cocoa.framework */; };
 		274CEDB4136008B50036F493 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 274CEDB2136008B50036F493 /* InfoPlist.strings */; };
 		274CEDB7136008B50036F493 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 274CEDB6136008B50036F493 /* main.m */; };
-		274CEDBA136008B50036F493 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 274CEDB8136008B50036F493 /* Credits.rtf */; };
 		274CEDBD136008B50036F493 /* Post_GrabberAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 274CEDBC136008B50036F493 /* Post_GrabberAppDelegate.m */; };
 		274CEDC0136008B60036F493 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274CEDBE136008B60036F493 /* MainMenu.xib */; };
+		274CEDC813600C970036F493 /* PGMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274CEDC713600C970036F493 /* PGMainWindowController.m */; };
+		274CEDCA13600F460036F493 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274CEDC913600F460036F493 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +22,16 @@
 		274CEDAC136008B50036F493 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		274CEDAD136008B50036F493 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		274CEDAE136008B50036F493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		274CEDB1136008B50036F493 /* Post Grabber-Info.plist */ = {isa = PBXFileReference; path = "Post Grabber-Info.plist"; sourceTree = "<group>"; };
+		274CEDB1136008B50036F493 /* Post Grabber-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Post Grabber-Info.plist"; sourceTree = "<group>"; };
 		274CEDB3136008B50036F493 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		274CEDB5136008B50036F493 /* Post Grabber-Prefix.pch */ = {isa = PBXFileReference; path = "Post Grabber-Prefix.pch"; sourceTree = "<group>"; };
+		274CEDB5136008B50036F493 /* Post Grabber-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Post Grabber-Prefix.pch"; sourceTree = "<group>"; };
 		274CEDB6136008B50036F493 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		274CEDB9136008B50036F493 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		274CEDBB136008B50036F493 /* Post_GrabberAppDelegate.h */ = {isa = PBXFileReference; path = Post_GrabberAppDelegate.h; sourceTree = "<group>"; };
+		274CEDBB136008B50036F493 /* Post_GrabberAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post_GrabberAppDelegate.h; sourceTree = "<group>"; };
 		274CEDBC136008B50036F493 /* Post_GrabberAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post_GrabberAppDelegate.m; sourceTree = "<group>"; };
 		274CEDBF136008B60036F493 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		274CEDC613600C970036F493 /* PGMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGMainWindowController.h; sourceTree = "<group>"; };
+		274CEDC713600C970036F493 /* PGMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGMainWindowController.m; sourceTree = "<group>"; };
+		274CEDC913600F460036F493 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				274CEDAA136008B50036F493 /* Cocoa.framework in Frameworks */,
+				274CEDCA13600F460036F493 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +67,7 @@
 		274CEDA8136008B50036F493 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				274CEDC913600F460036F493 /* WebKit.framework */,
 				274CEDA9136008B50036F493 /* Cocoa.framework */,
 				274CEDAB136008B50036F493 /* Other Frameworks */,
 			);
@@ -85,6 +90,8 @@
 				274CEDBB136008B50036F493 /* Post_GrabberAppDelegate.h */,
 				274CEDBC136008B50036F493 /* Post_GrabberAppDelegate.m */,
 				274CEDBE136008B60036F493 /* MainMenu.xib */,
+				274CEDC613600C970036F493 /* PGMainWindowController.h */,
+				274CEDC713600C970036F493 /* PGMainWindowController.m */,
 				274CEDB0136008B50036F493 /* Supporting Files */,
 			);
 			path = "Post Grabber";
@@ -97,7 +104,6 @@
 				274CEDB2136008B50036F493 /* InfoPlist.strings */,
 				274CEDB5136008B50036F493 /* Post Grabber-Prefix.pch */,
 				274CEDB6136008B50036F493 /* main.m */,
-				274CEDB8136008B50036F493 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -150,7 +156,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				274CEDB4136008B50036F493 /* InfoPlist.strings in Resources */,
-				274CEDBA136008B50036F493 /* Credits.rtf in Resources */,
 				274CEDC0136008B60036F493 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,6 +169,7 @@
 			files = (
 				274CEDB7136008B50036F493 /* main.m in Sources */,
 				274CEDBD136008B50036F493 /* Post_GrabberAppDelegate.m in Sources */,
+				274CEDC813600C970036F493 /* PGMainWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,14 +182,6 @@
 				274CEDB3136008B50036F493 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		274CEDB8136008B50036F493 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				274CEDB9136008B50036F493 /* en */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		274CEDBE136008B60036F493 /* MainMenu.xib */ = {
@@ -278,6 +276,7 @@
 				274CEDC5136008B60036F493 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
