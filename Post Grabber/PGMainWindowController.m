@@ -91,7 +91,7 @@
         }
         
         if ( includeReferrer && [[request allHTTPHeaderFields] objectForKey:@"Referer"] ) {
-            [string appendFormat:@" -e %@", [[request allHTTPHeaderFields] objectForKey:@"Referer"]];
+            [string appendFormat:@" -e \"%@\"", [[request allHTTPHeaderFields] objectForKey:@"Referer"]];
         }
         
         NSMutableDictionary *formFields = nil;
@@ -105,7 +105,7 @@
                 if ( [pairArray count] == 2 ) {
                     [formFields setObject:[[pairArray objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
                                 forKey:[pairArray objectAtIndex:0]];
-                } else {
+                } else if ( [pairArray count] == 1 && [(NSString*)[pairArray objectAtIndex:0] length] > 0 ) {
                     [formFields setObject:@"" forKey:[pairArray objectAtIndex:0]];
                 }
             }
@@ -119,11 +119,11 @@
         
         if ( formFields ) {
             for ( NSString *key in [formFields allKeys] ) {
-                [string appendFormat:@" -F \"%@=%@\"", key, [[formFields objectForKey:key] stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""]];
+                [string appendFormat:@" --data-urlencode \"%@=%@\"", key, [[formFields objectForKey:key] stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""]];
             }
         }
         
-        [string appendFormat:@" \"%@\"\n", [[request URL] absoluteString]];
+        [string appendFormat:@" \"%@\"\n\n", [[request URL] absoluteString]];
     }
     
     return string;
@@ -132,11 +132,9 @@
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
     NSURLRequest *request = [[frame provisionalDataSource] request];
     
-    if ( [[request HTTPMethod] isEqualToString:@"POST"] ) {
-        [self willChangeValueForKey:@"script"];
-        [requests addObject:[[request copy] autorelease]];
-        [self didChangeValueForKey:@"script"];
-    }
+    [self willChangeValueForKey:@"script"];
+    [requests addObject:[[request copy] autorelease]];
+    [self didChangeValueForKey:@"script"];
 }
 
 @end
