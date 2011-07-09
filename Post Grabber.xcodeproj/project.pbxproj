@@ -239,8 +239,9 @@
 				GCC_PREFIX_HEADER = "Post Grabber/Post Grabber-Prefix.pch";
 				INFOPLIST_FILE = "Post Grabber/Post Grabber-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -257,8 +258,9 @@
 				GCC_PREFIX_HEADER = "Post Grabber/Post Grabber-Prefix.pch";
 				INFOPLIST_FILE = "Post Grabber/Post Grabber-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
