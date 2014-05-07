@@ -1,2 +1,4 @@
-xcuserdata
-project.xcworkspace
+*.pyc
+.DS_Store
+*.log
+*.pid
